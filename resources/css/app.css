@@ -8,4 +8,115 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --breakpoint-sm: 30rem;
+    --breakpoint-2xl: initial;
+}
+
+@layer base {
+    body {
+        @apply text-zinc-800 antialiased;
+    }
+
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@layer components {
+    .underline-link-component {
+        @apply inline font-medium text-sm text-neutral-800 underline underline-offset-[6px] hover:decoration-neutral-800/80;
+    }
+
+    .button-primary-component {
+        @apply relative inline-flex items-center justify-center px-4 gap-2 h-10
+        rounded-lg
+        font-medium text-sm whitespace-nowrap
+        cursor-pointer select-none
+        focus:outline-offset-2
+        focus:outline-2
+        active:shadow-none
+        disabled:opacity-75
+        disabled:cursor-default
+        disabled:pointer-events-none
+        border border-black/10 bg-neutral-800
+        text-white
+        shadow-[inset_0px_1px_--theme(--color-white/.2)]
+        transition-opacity
+        hover:bg-[color-mix(in_oklab,_var(--color-neutral-800),_transparent_10%)]
+        active:bg-neutral-900
+    }
+
+    .button-secondary-component {
+        @apply relative flex items-center justify-center px-4 gap-2 h-10
+        rounded-lg
+        font-medium text-sm whitespace-nowrap
+        cursor-pointer select-none
+        active:shadow-none
+        disabled:opacity-75
+        disabled:cursor-default
+        disabled:pointer-events-none
+        border border-zinc-200 border-b-zinc-300/80 bg-white
+        text-zinc-800
+        shadow-xs
+        transition-opacity
+        hover:bg-zinc-50
+        hover:border-zinc-200
+    }
+
+    .button-danger-component {
+        @apply relative inline-flex items-center justify-center px-4 gap-2 h-10
+        rounded-lg
+        font-medium text-sm whitespace-nowrap
+        cursor-pointer select-none
+        focus:outline-offset-2
+        focus:outline-2
+        active:shadow-none
+        disabled:opacity-75
+        disabled:cursor-default
+        disabled:pointer-events-none
+        border border-black/10 bg-red-700
+        text-white
+        shadow-[inset_0px_1px_--theme(--color-white/.2)]
+        transition-opacity
+        hover:bg-[color-mix(in_oklab,_var(--color-red-800),_transparent_10%)]
+        active:bg-red-800
+    }
+
+    .input-component {
+        @apply block px-3 h-10
+        border border-zinc-200 border-b-zinc-300/80 rounded-lg
+        bg-white shadow-xs
+        text-zinc-700 leading-[1.375rem]
+        placeholder-zinc-400
+        placeholder:text-sm
+        focus:outline-offset-2
+        focus:outline-2
+        disabled:text-zinc-400
+        disabled:placeholder-zinc-400/70
+        disabled:shadow-none
+        disabled:border-b-zinc-200
+    }
+
+    .label-component {
+        @apply inline-block text-sm font-medium mb-2
+    }
+
+    .error-component {
+        @apply font-medium text-sm text-red-500 mt-2
+    }
+}
+
+@layer utilities {
+    [x-cloak] {
+        display: none !important;
+    }
 }
