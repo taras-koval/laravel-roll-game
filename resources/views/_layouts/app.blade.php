@@ -24,10 +24,17 @@
         </div>
 
         <div class="flex flex-wrap items-center font-medium gap-x-8">
-            @guest
-                {{--<a href="" class="hover:underline">{{ __('Login') }}</a>--}}
-                {{--<a href="" class="hover:underline">{{ __('Register') }}</a>--}}
-            @endguest
+            @if(isset($link))
+                <form action="{{ route('link.regenerate', $link->uuid) }}" method="post">
+                    @csrf
+                    <button type="submit" class="cursor-pointer hover:underline">{{ __('Generate New Link') }}</button>
+                </form>
+
+                <form action="{{ route('link.deactivate', $link->uuid) }}" method="post">
+                    @csrf
+                    <button type="submit" class="cursor-pointer hover:underline">{{ __('Deactivate Link') }}</button>
+                </form>
+            @endif
         </div>
     </nav>
 </header>
@@ -43,6 +50,8 @@
         </p>
     </div>
 </footer>
+
+@include('_components.toast-message')
 
 @stack('scripts')
 </body>

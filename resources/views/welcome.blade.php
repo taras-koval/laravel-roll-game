@@ -14,6 +14,12 @@
             <section class="flex flex-col max-w-[340px] mx-auto gap-6">
                 <header class="flex flex-col items-center text-center gap-4">
                     <h1 class="text-2xl font-extrabold">{{ __('Registration') }}</h1>
+
+                    @if(session('message'))
+                        <div class="bg-blue-100 w-full p-4 rounded mb-4">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                 </header>
 
                 <form action="{{ route('register') }}" method="post">
