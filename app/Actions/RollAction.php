@@ -5,6 +5,7 @@ namespace App\Actions;
 use App\Models\Link;
 use App\Models\Roll;
 
+/** Tests @see RollActionTest */
 class RollAction
 {
     public function __invoke(Link $link): Roll

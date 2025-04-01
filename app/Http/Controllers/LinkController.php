@@ -6,9 +6,7 @@ use App\Actions\CreateLinkAction;
 use App\Models\Link;
 use Illuminate\Http\RedirectResponse;
 
-/**
- * Tests @see LinkControllerTest
- */
+/** Tests @see LinkControllerTest */
 class LinkController extends Controller
 {
     public function regenerate(string $uuid, CreateLinkAction $createLinkAction): RedirectResponse

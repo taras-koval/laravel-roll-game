@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Database\Factories\LinkFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -9,10 +11,17 @@ use Illuminate\Support\Str;
 
 class Link extends Model
 {
+    /** @use HasFactory<LinkFactory> */
+    use HasFactory;
+
     protected $fillable = [
         'uuid',
         'user_id',
         'active',
+    ];
+
+    protected $casts = [
+        'active' => 'boolean',
     ];
 
     protected $attributes = [

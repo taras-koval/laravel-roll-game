@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\View\View;
 
-/**
- * Tests @see GameControllerTest
- */
+/** Tests @see GameControllerTest */
 class GameController extends Controller
 {
     public function show(Request $request): View
