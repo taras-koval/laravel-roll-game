@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
+            'username' => 'Test User',
+            'phonenumber' => '0123456789',
             'email' => 'test@example.com',
         ]);
     }
