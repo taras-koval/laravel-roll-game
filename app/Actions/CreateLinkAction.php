@@ -9,7 +9,7 @@ class CreateLinkAction
 {
     public function __invoke(User $user): Link
     {
-        $user->links()->update(['active' => false]);
+        $user->links()->where('active', true)->update(['active' => false]);
 
         return $user->links()->create();
     }

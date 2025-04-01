@@ -21,6 +21,8 @@ class RegisterController extends Controller
 
         $link = $createLinkAction($user);
 
-        return redirect()->back()->with('link', $link);
+        return redirect()->back()->with([
+            'link' => route('game.show', $link->uuid),
+        ]);
     }
 }

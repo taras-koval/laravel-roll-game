@@ -10,9 +10,8 @@ use Illuminate\View\View;
  */
 class IndexController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
-
         return view('welcome');
     }
 }
